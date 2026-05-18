@@ -1,0 +1,27 @@
+%{
+#include<stdio.h>
+%}
+
+%%
+
+[0-9]+              { printf("Integer Constant\n"); }
+
+[0-9]+"."[0-9]+     { printf("Float Constant\n"); }
+
+\'[a-zA-Z]\'        { printf("Character Constant\n"); }
+
+.+ { printf("Not a Constant\n"); }
+
+%%
+
+int main()
+{
+    printf("Enter a string(abhi bhi mai hi type karra hu):\n");
+    yylex();
+    return 0;
+}
+
+int yywrap()
+{
+    return 1;
+}
